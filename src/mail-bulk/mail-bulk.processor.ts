@@ -67,15 +67,15 @@ export class MailBulkProcessor extends WorkerHost {
   private async sendName_code_cccd(item: any) {
     try {
       console.log('item', item)
-      this.logger.debug(`Sending email to '${item}'`);
+      this.logger.debug(`Sending email to '${item.email}'`);
       await this.mailerService.sendMail({
-        to: item,
+        to: item.email,
         from: process.env.MAIL_FROM,
-        subject: 'test',
+        subject: item.subject,
         template: `./payment-successful.en.hbs`,
         context: {
-          name: 'tese',
-          cost: 1
+          name: item.name,
+          cost: item.cost,
         },
       });
     } catch (error) {
