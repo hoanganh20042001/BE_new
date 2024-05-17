@@ -23,7 +23,7 @@ require('dotenv').config();
       UserRepository,
       RoleRepository
     ]),
-    PassportModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
       secret: process.env.JWT_SECRET_KEY,
       signOptions: { expiresIn: process.env.JWT_EXPIRED_TOKEN_AFTER }
