@@ -152,8 +152,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "createProduct", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.AuthenticationGuard),
-    (0, swagger_1.ApiBearerAuth)(),
     (0, common_1.Get)('list-all'),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
@@ -161,8 +159,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ProductController.prototype, "listAllProduct", null);
 __decorate([
-    (0, common_1.UseGuards)(auth_guard_1.AuthenticationGuard),
-    (0, swagger_1.ApiBearerAuth)(),
     (0, common_1.Get)('detail'),
     __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
