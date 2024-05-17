@@ -119,15 +119,15 @@ export class ProductController {
   }
 
 
-  @UseGuards(AuthenticationGuard)
-  @ApiBearerAuth()
+  // @UseGuards(AuthenticationGuard)
+  // @ApiBearerAuth()
   @Get('list-all')
   async listAllProduct(@Query() payload: listAllProductDto) {
     return this.ProductService.listAllProduct(payload);
   }
 
-  @UseGuards(AuthenticationGuard)
-  @ApiBearerAuth()
+  // @UseGuards(AuthenticationGuard)
+  // @ApiBearerAuth()
   @Get('detail')
   async getDetailProduct(@Query() payload: getDetailProductDto) {
     return this.ProductService.getDetailProduct(payload);
