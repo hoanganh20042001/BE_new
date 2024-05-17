@@ -34,7 +34,7 @@ AuthModule = __decorate([
                 user_repository_1.UserRepository,
                 role_repository_1.RoleRepository
             ]),
-            passport_1.PassportModule,
+            passport_1.PassportModule.register({ defaultStrategy: 'jwt' }),
             jwt_1.JwtModule.register({
                 secret: process.env.JWT_SECRET_KEY,
                 signOptions: { expiresIn: process.env.JWT_EXPIRED_TOKEN_AFTER }

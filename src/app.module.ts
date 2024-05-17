@@ -45,15 +45,15 @@ require('dotenv').config();
       password: process.env.REDIS_PASSWORD,
     },
   }),
-  MongooseModule.forRootAsync({
-    imports: [ConfigModule],
-    useFactory: async (configService: ConfigService) => ({
-      uri: configService.get<string>('mongo.uri'),
-      // Pass additional options if needed
-      // e.g., options: configService.get<any>('mongo.options')
-    }),
-    inject: [ConfigService],
-  }),
+  // MongooseModule.forRootAsync({
+  //   imports: [ConfigModule],
+  //   useFactory: async (configService: ConfigService) => ({
+  //     uri: configService.get<string>('mongo.uri'),
+  //     // Pass additional options if needed
+  //     // e.g., options: configService.get<any>('mongo.options')
+  //   }),
+  //   inject: [ConfigService],
+  // }),
     OrmModule,
     UserModule,
     UserTokenModule,
@@ -72,7 +72,7 @@ require('dotenv').config();
     AddressModule,
     BackupModule,
     MinioModule,
-    MongoModule,
+    // MongoModule,
     MailBulkModule
     // SocketModule,
 

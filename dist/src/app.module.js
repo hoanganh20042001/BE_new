@@ -20,10 +20,8 @@ const backup_module_1 = require("./backup/backup.module");
 const minio_module_1 = require("./minio/minio.module");
 const config_1 = require("@nestjs/config");
 const backup_config_1 = require("./config/backup.config");
-const mongo_module_1 = require("./mongo/mongo.module");
 const mail_config_1 = __importDefault(require("./config/mail.config"));
 const mongodb_config_1 = __importDefault(require("./config/mongodb.config"));
-const mongoose_1 = require("@nestjs/mongoose");
 const category_module_1 = require("./module/category.module");
 const brand_module_1 = require("./module/brand.module");
 const user_module_1 = require("./module/user.module");
@@ -57,13 +55,6 @@ AppModule = __decorate([
                     password: process.env.REDIS_PASSWORD,
                 },
             }),
-            mongoose_1.MongooseModule.forRootAsync({
-                imports: [config_1.ConfigModule],
-                useFactory: async (configService) => ({
-                    uri: configService.get('mongo.uri'),
-                }),
-                inject: [config_1.ConfigService],
-            }),
             orm_1.OrmModule,
             user_module_1.UserModule,
             user_token_module_1.UserTokenModule,
@@ -82,8 +73,8 @@ AppModule = __decorate([
             address_module_1.AddressModule,
             backup_module_1.BackupModule,
             minio_module_1.MinioModule,
-            mongo_module_1.MongoModule,
-            mail_bulk_module_1.MailBulkModule],
+            mail_bulk_module_1.MailBulkModule
+        ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService]
     })

@@ -53,15 +53,15 @@ let MailBulkProcessor = class MailBulkProcessor extends bullmq_1.WorkerHost {
     async sendName_code_cccd(item) {
         try {
             console.log('item', item);
-            this.logger.debug(`Sending email to '${item}'`);
+            this.logger.debug(`Sending email to '${item.email}'`);
             await this.mailerService.sendMail({
-                to: item,
+                to: item.email,
                 from: process.env.MAIL_FROM,
-                subject: 'test',
+                subject: item.subject,
                 template: `./payment-successful.en.hbs`,
                 context: {
-                    name: 'tese',
-                    cost: 1
+                    name: item.name,
+                    cost: item.cost,
                 },
             });
         }
